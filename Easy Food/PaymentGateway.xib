@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentGateway">
+            <connections>
+                <outlet property="creditCardAmountValue" destination="zl4-5N-64H" id="s4J-ef-UfA"/>
+                <outlet property="creditCardExpiration" destination="u4X-Z5-9Nl" id="Rht-GG-nUt"/>
+                <outlet property="creditCardHolder" destination="Bru-Yb-BPe" id="HJ3-eQ-b4G"/>
+                <outlet property="creditCardNumber" destination="ohE-j3-ynL" id="Ycv-cu-Vch"/>
+                <outlet property="creditCardSecureCode" destination="8oq-66-mbb" id="1f0-c4-LZM"/>
+                <outlet property="creditCardTopUpAmount" destination="4ss-Fl-NZN" id="6hG-iz-C6E"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jMF-IA-95B">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGZ-dI-LY8">
+                            <rect key="frame" x="107" y="551" width="160" height="50"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="160" id="PRh-TY-B7V"/>
+                                <constraint firstAttribute="height" constant="50" id="mko-yy-UAb"/>
+                            </constraints>
+                            <state key="normal" image="ApplePayBTN_64pt__black_textLogo_"/>
+                            <connections>
+                                <action selector="paymentProcessingInterface:" destination="-1" eventType="touchUpInside" id="OYK-uh-0PK"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Example: Jack Appleseed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bru-Yb-BPe">
+                            <rect key="frame" x="8" y="115" width="359" height="30"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="aaN-az-uzW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Card Holder:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjJ-FA-xWi">
+                            <rect key="frame" x="8" y="86" width="220" height="21"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="220" id="Omk-BB-iVo"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Example: 3940 0482 8371 3813" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ohE-j3-ynL">
+                            <rect key="frame" x="8" y="182" width="359" height="30"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="RS5-SU-TLq"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Card Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hm-53-bye">
+                            <rect key="frame" x="8" y="153" width="220" height="21"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Example: 08/19" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u4X-Z5-9Nl">
+                            <rect key="frame" x="8" y="249" width="359" height="30"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Pk3-af-BNI"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Card Expiration:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIg-cz-Orr">
+                            <rect key="frame" x="8" y="220" width="220" height="21"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Example: 340" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8oq-66-mbb">
+                            <rect key="frame" x="8" y="316" width="359" height="30"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="PFu-bW-SA4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Card CVV:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rci-fj-a7e">
+                            <rect key="frame" x="8" y="287" width="220" height="21"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Example: 490000 BYR" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zl4-5N-64H">
+                            <rect key="frame" x="8" y="383" width="359" height="30"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="zoH-US-lgk"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Card CVV:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvK-sb-M6V">
+                            <rect key="frame" x="8" y="354" width="220" height="21"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Example: 490000 BYR" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ss-Fl-NZN">
+                            <rect key="frame" x="8" y="447" width="359" height="30"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="qFh-ZO-LOw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Card Amount:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baf-mt-C3W">
+                            <rect key="frame" x="8" y="418" width="220" height="21"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <animations/>
+                    <constraints>
+                        <constraint firstItem="zl4-5N-64H" firstAttribute="leading" secondItem="fvK-sb-M6V" secondAttribute="leading" id="1vX-YF-ls2"/>
+                        <constraint firstItem="zl4-5N-64H" firstAttribute="trailing" secondItem="8oq-66-mbb" secondAttribute="trailing" id="2mj-zG-fNn"/>
+                        <constraint firstItem="7hm-53-bye" firstAttribute="trailing" secondItem="vjJ-FA-xWi" secondAttribute="trailing" id="5He-gq-vkD"/>
+                        <constraint firstItem="vjJ-FA-xWi" firstAttribute="top" secondItem="jMF-IA-95B" secondAttribute="top" constant="86" id="5UZ-Wk-JQs"/>
+                        <constraint firstItem="uIg-cz-Orr" firstAttribute="top" secondItem="ohE-j3-ynL" secondAttribute="bottom" constant="8" symbolic="YES" id="7bJ-dP-uXY"/>
+                        <constraint firstItem="jGZ-dI-LY8" firstAttribute="centerX" secondItem="jMF-IA-95B" secondAttribute="centerX" id="DB2-2J-31u"/>
+                        <constraint firstItem="7hm-53-bye" firstAttribute="leading" secondItem="ohE-j3-ynL" secondAttribute="leading" id="DsK-81-VbX"/>
+                        <constraint firstItem="rci-fj-a7e" firstAttribute="trailing" secondItem="fvK-sb-M6V" secondAttribute="trailing" id="F2D-mD-vTM"/>
+                        <constraint firstItem="ohE-j3-ynL" firstAttribute="trailing" secondItem="Bru-Yb-BPe" secondAttribute="trailing" id="HCX-X8-Lqv"/>
+                        <constraint firstItem="fvK-sb-M6V" firstAttribute="top" secondItem="8oq-66-mbb" secondAttribute="bottom" constant="8" symbolic="YES" id="HgM-HW-Jc7"/>
+                        <constraint firstItem="ohE-j3-ynL" firstAttribute="trailing" secondItem="u4X-Z5-9Nl" secondAttribute="trailing" id="I4B-vL-OkC"/>
+                        <constraint firstItem="Bru-Yb-BPe" firstAttribute="leading" secondItem="7hm-53-bye" secondAttribute="leading" id="IfG-BS-tlS"/>
+                        <constraint firstItem="baf-mt-C3W" firstAttribute="leading" secondItem="zl4-5N-64H" secondAttribute="leading" id="JKX-Gk-hVI"/>
+                        <constraint firstItem="7hm-53-bye" firstAttribute="top" secondItem="Bru-Yb-BPe" secondAttribute="bottom" constant="8" symbolic="YES" id="Jb8-Z1-XNt"/>
+                        <constraint firstAttribute="bottom" secondItem="jGZ-dI-LY8" secondAttribute="bottom" constant="66" id="K75-e5-at3"/>
+                        <constraint firstItem="rci-fj-a7e" firstAttribute="top" secondItem="u4X-Z5-9Nl" secondAttribute="bottom" constant="8" symbolic="YES" id="KqF-jC-rmP"/>
+                        <constraint firstItem="4ss-Fl-NZN" firstAttribute="top" secondItem="baf-mt-C3W" secondAttribute="bottom" constant="8" symbolic="YES" id="Llu-bQ-cAs"/>
+                        <constraint firstItem="fvK-sb-M6V" firstAttribute="trailing" secondItem="baf-mt-C3W" secondAttribute="trailing" id="MYF-7m-PXg"/>
+                        <constraint firstItem="8oq-66-mbb" firstAttribute="top" secondItem="rci-fj-a7e" secondAttribute="bottom" constant="8" symbolic="YES" id="Mnv-Pf-fCc"/>
+                        <constraint firstItem="7hm-53-bye" firstAttribute="leading" secondItem="jMF-IA-95B" secondAttribute="leadingMargin" id="N3U-P0-w6u"/>
+                        <constraint firstItem="rci-fj-a7e" firstAttribute="leading" secondItem="8oq-66-mbb" secondAttribute="leading" id="QS4-M5-cVw"/>
+                        <constraint firstItem="rci-fj-a7e" firstAttribute="leading" secondItem="u4X-Z5-9Nl" secondAttribute="leading" id="U5l-7R-0A3"/>
+                        <constraint firstItem="4ss-Fl-NZN" firstAttribute="centerX" secondItem="jGZ-dI-LY8" secondAttribute="centerX" id="UZ8-ks-cKb"/>
+                        <constraint firstItem="uIg-cz-Orr" firstAttribute="leading" secondItem="ohE-j3-ynL" secondAttribute="leading" id="VVC-s2-gkw"/>
+                        <constraint firstItem="uIg-cz-Orr" firstAttribute="trailing" secondItem="7hm-53-bye" secondAttribute="trailing" id="WIF-EL-zNK"/>
+                        <constraint firstItem="zl4-5N-64H" firstAttribute="trailing" secondItem="4ss-Fl-NZN" secondAttribute="trailing" id="bY9-k2-JXK"/>
+                        <constraint firstItem="u4X-Z5-9Nl" firstAttribute="leading" secondItem="uIg-cz-Orr" secondAttribute="leading" id="f12-wJ-xgM"/>
+                        <constraint firstItem="u4X-Z5-9Nl" firstAttribute="trailing" secondItem="jMF-IA-95B" secondAttribute="trailingMargin" id="hEc-9B-HQg"/>
+                        <constraint firstItem="ohE-j3-ynL" firstAttribute="top" secondItem="7hm-53-bye" secondAttribute="bottom" constant="8" symbolic="YES" id="jKy-Nm-bPb"/>
+                        <constraint firstItem="uIg-cz-Orr" firstAttribute="trailing" secondItem="rci-fj-a7e" secondAttribute="trailing" id="jsM-7p-djw"/>
+                        <constraint firstItem="u4X-Z5-9Nl" firstAttribute="top" secondItem="uIg-cz-Orr" secondAttribute="bottom" constant="8" symbolic="YES" id="jtf-kl-Jow"/>
+                        <constraint firstItem="zl4-5N-64H" firstAttribute="top" secondItem="fvK-sb-M6V" secondAttribute="bottom" constant="8" symbolic="YES" id="lC6-We-ow7"/>
+                        <constraint firstItem="u4X-Z5-9Nl" firstAttribute="trailing" secondItem="8oq-66-mbb" secondAttribute="trailing" id="leZ-Uw-dv4"/>
+                        <constraint firstItem="baf-mt-C3W" firstAttribute="top" secondItem="zl4-5N-64H" secondAttribute="bottom" constant="5" id="mMW-x1-YZ3"/>
+                        <constraint firstItem="8oq-66-mbb" firstAttribute="leading" secondItem="fvK-sb-M6V" secondAttribute="leading" id="mqT-Ib-NGO"/>
+                        <constraint firstItem="Bru-Yb-BPe" firstAttribute="top" secondItem="vjJ-FA-xWi" secondAttribute="bottom" constant="8" symbolic="YES" id="r3W-sl-gKO"/>
+                        <constraint firstItem="vjJ-FA-xWi" firstAttribute="leading" secondItem="Bru-Yb-BPe" secondAttribute="leading" id="taU-WN-uBh"/>
+                        <constraint firstItem="4ss-Fl-NZN" firstAttribute="leading" secondItem="baf-mt-C3W" secondAttribute="leading" id="vMC-Il-fI3"/>
+                        <constraint firstItem="jGZ-dI-LY8" firstAttribute="top" secondItem="4ss-Fl-NZN" secondAttribute="bottom" constant="74" id="xD6-8M-1AA"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="jMF-IA-95B" secondAttribute="trailing" id="42K-Vs-d3w"/>
+                <constraint firstItem="jMF-IA-95B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="F95-Gj-ZDH"/>
+                <constraint firstAttribute="bottom" secondItem="jMF-IA-95B" secondAttribute="bottom" id="XcB-sp-goi"/>
+                <constraint firstItem="jMF-IA-95B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="s5C-z9-Y4i"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="412.5" y="367.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ApplePayBTN_64pt__black_textLogo_" width="194" height="64"/>
+    </resources>
+</document>
