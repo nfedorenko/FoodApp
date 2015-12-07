@@ -43,11 +43,13 @@
 #pragma mark - Dissmiss call event
 
 - (IBAction)buySelectedProduct:(id)sender {
+    //тут покупается пицца, только она не записывается в историю, а просто минусуются деньги со счета
+    #warn
     PFUser *currentUser = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"_User"];
     [query getObjectInBackgroundWithId:currentUser.objectId block:^(PFObject *accountInformationGetts, NSError *error) {
         int currentBallance = [accountInformationGetts[@"dinnersCredit"] integerValue];
-        int transitBallance = currentBallance +100000;
+        int transitBallance = currentBallance - productCost;
         [self customerObjectUpdate:transitBallance :currentUser.objectId :true];
         NSLog(@"%@", accountInformationGetts);
     }];

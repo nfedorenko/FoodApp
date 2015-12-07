@@ -104,6 +104,8 @@
 #pragma mark - Download information from Google SQL
 
 - (void)receiveCustomerDatabaseProductDetails {
+    //Тут достается история в кастомер лаундж
+    #warn
     PFQuery *query = [PFQuery queryWithClassName:@"FFHistory"];
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *musicLibrary, NSError *error) {
