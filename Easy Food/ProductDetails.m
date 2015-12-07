@@ -11,7 +11,7 @@
 #import "PurchaseCell.h"
 
 @interface ProductDetails () {
-    int productCost;
+    float productCost;
 }
 
 @end
@@ -30,6 +30,7 @@
     [moreInformation getObjectInBackgroundWithId:self.delegateObjectId block:^(PFObject *productDetails, NSError *error) {
         self.productName.text = productDetails[@"pizzaName"];
         self.productDescription.text = productDetails[@"pizzaDescription"];
+        productCost = [productDetails[@"pizzaPrice"] floatValue];
         self.productPrice = [productDetails[@"pizzaPrice"] longValue];
         NSLog(@"%@", productDetails);
         [self.tableView reloadData];
@@ -42,34 +43,29 @@
 
 #pragma mark - Dissmiss call event
 
-#warning MODULE
-
 - (IBAction)buySelectedProduct:(id)sender {
-    //тут покупается пицца, только она не записывается в историю, а просто минусуются деньги со счета
-
     PFUser *currentUser = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"_User"];
-    [query getObjectInBackgroundWithId:currentUser.objectId block:^(PFObject *accountInformationGetts, NSError *error) {
-        int currentBallance = [accountInformationGetts[@"dinnersCredit"] integerValue];
-        int transitBallance = currentBallance - productCost;
-        [self customerObjectUpdate:transitBallance :currentUser.objectId :true];
-        NSLog(@"%@", accountInformationGetts);
+    [query getObjectInBackgroundWithId:currentUser.objectId block:^(PFObject *datastoreObject, NSError *error) {
+        float customerCredit = [datastoreObject[@"dinnersCredit"] floatValue];
+        float processingCredit = customerCredit - productCost;
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+        [query getObjectInBackgroundWithId:currentUser.objectId block:^(PFObject *writePaymentResult, NSError *error) {
+            writePaymentResult[@"dinnersCredit"] = @(processingCredit);
+            [writePaymentResult saveInBackground];
+            
+            PFObject *paymentLog = [PFObject objectWithClassName:@"FFHistory"];
+            paymentLog[@"productName"] = self.productName.text;
+            paymentLog[@"productPrice"] = @(productCost);
+            [paymentLog saveInBackground];
+        }];
     }];
 }
 
 - (IBAction)customerLoungeCenter:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
-
-- (void)customerObjectUpdate:(int)pricing :(NSString *)objectIdent :(BOOL)closeAccessor {
-    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
-    [query getObjectInBackgroundWithId:objectIdent
-                                 block:^(PFObject *bankInterface, NSError *error) {
-                                     bankInterface[@"dinnersCredit"] = @(pricing);
-                                     [bankInterface saveInBackground];
-                                 }];
-}
-
 
 #pragma mark - UITableViewDataSource
 
