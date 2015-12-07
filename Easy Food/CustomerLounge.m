@@ -44,8 +44,16 @@
     //set setting
     [self parametersOfView];
     
-
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [tableView addSubview:refreshControl];
 }
+
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    [self receiveCustomerDatabaseProductDetails];
+    [refreshControl endRefreshing];
+}
+
 #pragma mark - view settings
 -(void)parametersOfView{
     
@@ -104,8 +112,6 @@
 #pragma mark - Download information from Google SQL
 
 - (void)receiveCustomerDatabaseProductDetails {
-    //Тут достается история в кастомер лаундж
-    #warn
     PFQuery *query = [PFQuery queryWithClassName:@"FFHistory"];
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *musicLibrary, NSError *error) {
@@ -134,7 +140,7 @@
     
     cell.textLabel.text = [pizzaName objectAtIndex:indexPath.row];
    // cell.textLabel.textColor = [UIColor whiteColor];
-    cell.detailTextLabel.text = [[pizzaPrice objectAtIndex:indexPath.row] stringValue];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ руб.", [[pizzaPrice objectAtIndex:indexPath.row] stringValue] ];
     //cell.detailTextLabel.textColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor clearColor];
     return cell;

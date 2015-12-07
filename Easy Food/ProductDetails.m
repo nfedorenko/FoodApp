@@ -42,9 +42,11 @@
 
 #pragma mark - Dissmiss call event
 
+#warning MODULE
+
 - (IBAction)buySelectedProduct:(id)sender {
     //тут покупается пицца, только она не записывается в историю, а просто минусуются деньги со счета
-    #warn
+
     PFUser *currentUser = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"_User"];
     [query getObjectInBackgroundWithId:currentUser.objectId block:^(PFObject *accountInformationGetts, NSError *error) {
